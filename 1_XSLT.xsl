@@ -75,24 +75,32 @@
 
                 <h3>Contacto</h3>
                 <form>
-                    <br />
+                    <br/>
                     <label for="nombre" class="colocar_nombre">Nombre <span class="obligatorio">*</span>
                     </label>
-                    <br />
+                    <br/>
                     <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
                         placeholder="Escribe tu nombre" />
-                    <br />
+                    <br/>
                     <label for="email">Correo electrónico: <span class="obligatorio">*</span>
                     </label>
-                    <br />
+                    <br/>
                     <input type="email" id="email" name="email" required="obligatorio"
                         placeholder="email" />
-                    <br />
+                    <br/>
                     <label for="tlf" class="colocar_tlf">Teléfono</label>
-                    <br />
+                    <br/>
                     <input type="text" name="introducir_telefono" id="tlf" required="obligatorio"
                         placeholder="Telefono de contacto" />
-                    <br />
+                    <br/>
+                
+                  <h2>Selecciona el grado que te gustaría cursar:</h2>
+                     <xsl:for-each select="/ite/ciclos/ciclo">
+                            <xsl:value-of select="nombre"/>
+                              <input type="radio" name="@nombre" id= "nombre_form"/>
+                            <br/>                     
+                     </xsl:for-each>
+
                     <input type="submit" value="Enviar" />
                 </form>
 
