@@ -2,21 +2,28 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
+    
         <html>
             <head>
                 <title>
                     <xsl:value-of select="/ite/@nombre"/>
                 </title>
                 <a href="{/ite/@web}">Sitio web del Instituto</a>
-                <link rel="stylesheet" href="css/styles.css" />
+                <link rel="stylesheet" href="css/styles.css" />           
             </head>
             <body>
-                <h2>
+            <div class="imagen_h1">
+                <img src="img/proeduca.png" alt="proeduca"></img>
+            </div>
+            <div class="contenedor_h1">
+                <h1>
                     <xsl:value-of select="ite/empresa" />
-                </h2>
-                <h2>Teléfono: <xsl:value-of select="ite/telefono" />
-                </h2>
-
+                </h1>
+                <h1>Teléfono: <xsl:value-of select="ite/telefono" />
+                </h1>   
+            </div>
+       
+           <div class="contenedor_principal">
                 <h3>Profesores</h3>
                 <table border="1">
                     <tr>
@@ -36,17 +43,16 @@
                 </table>
 
                 <h3>Director</h3>
-                <p>Nombre: <xsl:value-of select="/ite/director/nombre" />
-                </p>
-                <p>Despacho: <xsl:value-of select="/ite/director/despacho" />
-                </p>
+                <ul>
+                    <li> Nombre: <xsl:value-of select="/ite/director/nombre"/> </li>
+                    <li> Despacho: <xsl:value-of select="/ite/director/despacho" /></li>
+                </ul>
 
                 <h3>Jefe de Estudios</h3>
-                <p>Nombre: <xsl:value-of select="/ite/jefe_estudios/nombre" />
-                </p>
-                <p>Despacho: <xsl:value-of select="/ite/jefe_estudios/despacho" />
-                </p>
-
+                <ul>
+                    <li> Nombre: <xsl:value-of select="/ite/jefe_estudios/nombre" /></li>  
+                    <li> Despacho: <xsl:value-of select="/ite/jefe_estudios/despacho" /> </li>
+                </ul>
                 <h3>Ciclos</h3>
                 <table border="1">
                     <tr>
@@ -72,8 +78,7 @@
                         </tr>
                     </xsl:for-each>
                 </table>
-
-                <h3>Contacto</h3>
+            </div>
                 <form>
                     <br/>
                     <label for="nombre" class="colocar_nombre">Nombre <span class="obligatorio">*</span>
